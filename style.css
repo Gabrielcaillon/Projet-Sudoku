@@ -24,3 +24,9 @@
     font-size: 20px;
     outline: none;
 }
+.cell:nth-child(3n) {
+    border-right: 2px solid black;
+}
+.cell:nth-child(27n) {
+    border-bottom: 2px solid black;
+}

@@ -44,3 +44,4 @@ console.log(puzzle);
             sudoku.appendChild(cell);
         }   
     }
+    
