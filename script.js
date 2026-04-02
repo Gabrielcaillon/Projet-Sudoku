@@ -26,13 +26,21 @@ window.onload = function () {
 
 console.log(puzzle);
 
-for (let i = 0; i < puzzle.length; i++) {
-    for (let j = 0; j < puzzle[i].length; j++) {
-        const cellValue = puzzle[i][j];
-        if (cellValue !== 0) {
-            const cellIndex = i * 9 + j;
-            const cell = document.querySelector(`.sudoku .cell:nth-child(${cellIndex + 1})`);
-            cell.textContent = cellValue;
-        }
+ for (let i = 0; i < 9; i++) { // Parcours des lignes
+        for (let j = 0; j < 9; j++) { // Parcours des colonnes
+            const valeur = puzzle[i][j];
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+
+            if (valeur !== 0) {
+                // Chiffre fixé au départ [cite: 5, 12]
+                cell.textContent = valeur;
+                cell.classList.add("fixe"); // Sera gris en CSS 
+            } else {
+                // Case vide à remplir par le joueur [cite: 6, 12]
+                cell.contentEditable = "true"; // Active la saisie clavier
+                cell.classList.add("modifiable");
+            }
+            sudoku.appendChild(cell);
+        }   
     }
-}
