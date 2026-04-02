@@ -25,3 +25,14 @@ window.onload = function () {
 };
 
 console.log(puzzle);
+
+for (let i = 0; i < puzzle.length; i++) {
+    for (let j = 0; j < puzzle[i].length; j++) {
+        const cellValue = puzzle[i][j];
+        if (cellValue !== 0) {
+            const cellIndex = i * 9 + j;
+            const cell = document.querySelector(`.sudoku .cell:nth-child(${cellIndex + 1})`);
+            cell.textContent = cellValue;
+        }
+    }
+}
