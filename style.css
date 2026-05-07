@@ -1,36 +1,142 @@
-.h1 {
-  font-size: 24px;
-  margin-top: 20px;
-  margin-left: 1080px;
-}
-
-
-.sudoku {
-  margin-left: 800px;
-  margin-top: 100px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(9, 40px);
-  grid-auto-rows: 40px;
-  gap: 0;
-}
-
-.cell {
-    width: 40px;
-    height: 40px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    outline: none;
-}
-.input-cell {
-    width: 100%;
-    height: 100%;
-    border: none;
-    text-align: center;
-    font-size: 20px;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: monospace;
+      background: #f5f4f0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+ 
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+ 
+    .title {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: -0.5px;
+    }
+ 
+    .subtitle {
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 0.1em;
+      margin-top: -8px;
+    }
+ 
+    .diff {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+ 
+    .diff label {
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+ 
+    .diff select {
+      font-size: 12px;
+      font-family: monospace;
+      padding: 5px 10px;
+      border: 1.5px solid #aaa;
+      border-radius: 6px;
+      background: transparent;
+      color: #555;
+      cursor: pointer;
+      outline: none;
+    }
+ 
+    .board {
+      display: grid;
+      grid-template-columns: repeat(9, 48px);
+      grid-template-rows: repeat(9, 48px);
+      border: 3px solid #111;
+    }
+ 
+    .cell {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+ 
+    .cell.b3r { border-right: 3px solid #111; }
+    .cell.b3b { border-bottom: 3px solid #111; }
+    .cell.fixed { background: #e8e8e4; color: #111; }
+ 
+    .cell input {
+      width: 48px;
+      height: 48px;
+      border: none;
+      outline: none;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      font-family: monospace;
+      color: #185FA5;
+      background: transparent;
+      padding: 0;
+      display: block;
+    }
+ 
+    .cell input:focus { background: #deeaf7; }
+    .cell.er input    { color: #A32D2D; background: #fde8e8; }
+    .cell.ok input    { color: #3B6D11; background: #eaf3de; }
+ 
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+ 
+    .btn {
+      padding: 9px 22px;
+      font-size: 12px;
+      letter-spacing: 0.07em;
+      border: 1.5px solid #aaa;
+      border-radius: 6px;
+      background: transparent;
+      color: #555;
+      cursor: pointer;
+      font-family: monospace;
+    }
+ 
+    .btn:hover { background: #e8e8e4; color: #111; }
+ 
+    .btn.primary {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+    .btn.primary:hover { opacity: 0.8; }
+ 
+    .btn.generate {
+      background: #185FA5;
+      color: #fff;
+      border-color: #185FA5;
+    }
+    .btn.generate:hover { opacity: 0.85; }
+ 
+    .status {
+      font-size: 12px;
+      min-height: 16px;
+      color: #888;
+      letter-spacing: 0.04em;
+    }
+    .status.win { color: #3B6D11; font-weight: 600; }
+    .status.err { color: #A32D2D; }

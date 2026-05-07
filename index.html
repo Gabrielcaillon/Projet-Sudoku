@@ -1,105 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUDOKU TEST</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        
-        h1 {
-            text-align: center;
-        }
-        
-        .container {
-            margin: 20px auto;
-            width: fit-content;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(9, 40px);
-            grid-auto-rows: 40px;
-            gap: 0;
-            border: 2px solid black;
-        }
-        
-        .cell {
-            width: 40px;
-            height: 40px;
-            border: 1px solid gray;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            font-weight: bold;
-            background-color: #f9f9f9;
-        }
-        
-        .cell.fixe {
-            background-color: #e0e0e0;
-        }
-        
-        .cell input {
-            width: 100%;
-            height: 100%;
-            border: none;
-            text-align: center;
-            font-size: 18px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>SUDOKU - Test Simple</h1>
-    
-    <div class="container">
-        <div class="grid" id="grid">
+  <div class="wrap">
+    <h1 class="title">Sudoku</h1>
+    <p class="subtitle">remplissez la grille</p>
+        <div class="diff">
+         <label>difficulté</label>
+            <select id="diff">
+            <option value="35">facile</option>
+            <option value="45" selected>moyen</option>
+            <option value="55">difficile</option>
+      </select>
+    </div>
+    <div class="board" id="board"></div>
+        <div class="status" id="status"></div>
+         <div class="actions">
+            <button class="btn generate" onclick="generate()">⟳ Nouvelle grille</button>
+            <button class="btn"          onclick="clr()">Effacer</button>
+            <button class="btn"          onclick="chk()">Vérifier</button>
+             <button class="btn primary"  onclick="sol()">Solution</button>
         </div>
     </div>
-
-    <script>
-        // Puzzle de test
-        const puzzle = [
-            [5, 3, 0, 0, 7, 0, 0, 0, 0],
-            [6, 0, 0, 1, 9, 5, 0, 0, 0],
-            [0, 9, 8, 0, 0, 0, 0, 6, 0],
-            [8, 0, 0, 0, 6, 0, 0, 0, 3],
-            [4, 0, 0, 8, 0, 3, 0, 0, 1],
-            [7, 0, 0, 0, 2, 0, 0, 0, 6],
-            [0, 6, 0, 0, 0, 0, 2, 8, 0],
-            [0, 0, 0, 4, 1, 9, 0, 0, 5],
-            [0, 0, 0, 0, 8, 0, 0, 7, 9]
-        ];
-        
-        console.log("Script chargé!");
-        
-        const grid = document.getElementById('grid');
-        console.log("Grid trouvée:", grid);
-        
-        for (let i = 0; i < 9; i++) {
-            for (let j = 0; j < 9; j++) {
-                const valeur = puzzle[i][j];
-                const cell = document.createElement('div');
-                cell.className = 'cell';
-                
-                if (valeur !== 0) {
-                    cell.textContent = valeur;
-                    cell.classList.add('fixe');
-                } else {
-                    const input = document.createElement('input');
-                    input.type = 'text';
-                    input.maxLength = '1';
-                    cell.appendChild(input);
-                }
-                
-                grid.appendChild(cell);
-            }
-        }
-        
-        console.log("Grille créée avec succès!");
-    </script>
 </body>
 </html>
