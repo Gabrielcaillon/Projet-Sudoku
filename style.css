@@ -1,7 +1,7 @@
 .h1 {
   font-size: 24px;
   margin-top: 20px;
-  margin-left: 680px;
+  margin-left: 1080px;
 }
 
 
@@ -9,7 +9,7 @@
   display : grid;
   grid-template-columns: repeat(9, 40px);
   grid-auto-columns: auto;
-  margin-left: 600px;
+  margin-left: 800px;
   margin-top: 100px;
   
 }
