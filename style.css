@@ -6,12 +6,15 @@
 
 
 .sudoku {
-  display : grid;
-  grid-template-columns: repeat(9, 40px);
-  grid-auto-columns: auto;
   margin-left: 800px;
   margin-top: 100px;
-  
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, 40px);
+  grid-auto-rows: 40px;
+  gap: 0;
 }
 
 .cell {
